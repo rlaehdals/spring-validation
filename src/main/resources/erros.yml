@@ -1,0 +1,7 @@
+notEmail:
+  email: email 형식으로 입력해주세요.
+range:
+  password: password의 길이는 {0}~{1}으로 해주세요.
+  age: age는 0~100 사이로 입력해주세요.
+
+
