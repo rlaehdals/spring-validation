@@ -3,6 +3,7 @@ package com.example.mvc.controller;
 import com.example.mvc.dto.UserDto;
 import com.example.mvc.validatior.UserValidator;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
@@ -101,7 +102,7 @@ public class UserController {
     }
 
     @PostMapping("/validation/v4")
-    public String validationV4(@Validated @RequestBody UserDto dto, BindingResult bindingResult) {
+    public String validationV4(@Validated @ModelAttribute UserDto dto, BindingResult bindingResult) {
 
         System.out.println(bindingResult.getAllErrors().size());
         if(bindingResult.hasErrors()){
@@ -131,4 +132,6 @@ public class UserController {
     public ResponseEntity<?> validationV6(@Validated @RequestBody UserDto dto){
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
+
+
 }

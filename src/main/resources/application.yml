@@ -1,3 +1,6 @@
 spring:
   messages:
     basename: errors
+
+  profiles:
+    include: exam
