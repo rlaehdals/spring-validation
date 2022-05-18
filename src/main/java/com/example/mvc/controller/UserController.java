@@ -1,6 +1,7 @@
 package com.example.mvc.controller;
 
 import com.example.mvc.dto.UserDto;
+import com.example.mvc.validatior.CustomValidator;
 import com.example.mvc.validatior.UserValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.env.Environment;
@@ -13,13 +14,16 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 public class UserController {
 
 
+    private final CustomValidator customValidator;
 
 //    @InitBinder
     public void init(DataBinder binder){
@@ -133,5 +137,20 @@ public class UserController {
         return new ResponseEntity<>(dto,HttpStatus.OK);
     }
 
+    @PostMapping("/validation/v7")
+    public ResponseEntity<?> validationV7(@Valid @RequestBody List<UserDto> dto, BindingResult bindingResult){
+        customValidator.validate(dto,bindingResult);
 
+        HashMap<String, Object> errors = new HashMap<>();
+        if(bindingResult.hasErrors()){
+            bindingResult.getAllErrors().stream()
+                    .forEach(a->{
+                        String field = ((FieldError) a).getField();
+                        String defaultMessage = a.getDefaultMessage();
+                        errors.put(field, defaultMessage);
+                    });
+            return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(dto,HttpStatus.OK);
+    }
 }
