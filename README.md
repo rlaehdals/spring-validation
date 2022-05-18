@@ -4,4 +4,4 @@ Validation에 대한내용은 [Validation 유효성 검증 ](https://dingdingmin
 
 Validation 동작 과정에 대한 내용은  [Validation 동작 과정 ](https://dingdingmin-back-end-developer.tistory.com/entry/Springboot-MVC-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B010-Validation-%EB%8F%99%EC%9E%91%EA%B3%BC%EC%A0%95)에 설명돼 있습니다. 참고해주세요.
 
-Collection Validation 적용에 대한 내용은[Collection Validation 적용](https://dingdingmin-back-end-developer.tistory.com/entry/Springboot-MVC-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B013-Collection-Validation-%EC%A0%81%EC%9A%A9)에 설명도 있습니다. 참고해주세요.
+Collection Validation 적용에 대한 내용은 [Collection Validation 적용](https://dingdingmin-back-end-developer.tistory.com/entry/Springboot-MVC-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B013-Collection-Validation-%EC%A0%81%EC%9A%A9)에 설명도 있습니다. 참고해주세요.
